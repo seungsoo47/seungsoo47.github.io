@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="d1">Write something in the text field to trigger a function.</div>
+<button id="b1">TEST!!!!!</button>
+<input type="text" id="myInput" oninput="myFunction()">
+
+<p id="demo"></p>
+<p id="d2"></p>
+
+<script>
+
+b1.addEventListener('input', update);
+b1.addEventListener('click', update);
+
+d1.addEventListener('input', update);
+d1.addEventListener('click', update);
+function update(e) {
+  var textContent = e.target.value;
+  if (e.type == "click")
+  {
+    console.log("click event:"+textContent);
+  } else if (e.type == "input")
+  {
+    console.log("input event:"+textContent);
+  }
+  document.getElementById("d2").innerHTML = document.activeElement
+}
+
+myInput.addEventListener('input', updateValue1);
+myInput.addEventListener('click', updateValue1);
+
+function updateValue1(e) {
+  var textContent = e.target.value;
+  if (e.type == "click")
+  {
+    console.log("click event:"+textContent);
+  } else if (e.type == "input")
+  {
+    console.log("input event:"+textContent);
+  }
+}
+
+function updateValue2(e) {
+  var textContent = e.target.value;
+  if (e.type == "click")
+  {
+    console.log("click event:"+textContent);
+  } else if (e.type == "input")
+  {
+    console.log("input event:"+textContent);
+  }
+}
+
+
+function myFunction() {
+  var x = document.getElementById("myInput").value;
+  document.getElementById("demo").innerHTML = "You wrote: " + x;
+}
+</script>
+
+</body>
+</html>
