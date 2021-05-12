@@ -18,6 +18,10 @@
       function initMap() {
         var options = {mapTypeControl: false, fullscreenControl: false, streetViewControl: false, mapTypeId: 'satellite', minZoom: null, maxZoom: null, zoomControl: false, gestureHandling: 'auto', zoom: 11.0, center: {lat: -33.852 ,lng: 151.211}};
         map = new google.maps.Map(document.getElementById('map'), options);
+        map.addListener('bounds_changed', () => {
+          var bound = JSON.stringify(map.getBounds());
+          console.log('bounds_changed:' + bound);
+        });
       }
   	  console.log("before load");
     </script>
